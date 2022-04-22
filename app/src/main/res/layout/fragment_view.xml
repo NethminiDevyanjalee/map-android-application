@@ -5,6 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".ViewFragment">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:itemCount="10"
+        tools:listitem="@layout/card_view_design" />
 
     <Button
         android:id="@+id/btnAddNew"
