@@ -6,6 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.mapapplication.adapters.LocationAdapter
+import com.example.mapapplication.database.AppDatabase
 import com.example.mapapplication.databinding.FragmentViewBinding
 
 class ViewFragment : Fragment() {
@@ -24,6 +28,12 @@ class ViewFragment : Fragment() {
 
     override fun onViewCreated(view: View,savedInstanceState: Bundle?){
         super.onViewCreated(view, savedInstanceState)
+
+        val recyclerView = binding.recyclerview
+        recyclerView.layoutManager = LinearLayoutManager(this.context)
+        val db = AppDatabase.getDatabase(view.context)
+        val data = db.locationDao().getAll()
+        recyclerView.adapter = LocationAdapter(data)
 
         binding.btnAddNew.setOnClickListener {
             findNavController().navigate(R.id.action_viewFragment_to_addDataFragment)
