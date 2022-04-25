@@ -25,6 +25,18 @@
         <action
             android:id="@+id/action_viewFragment_to_addDataFragment"
             app:destination="@id/addDataFragment" />
+        <action
+            android:id="@+id/action_viewFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.example.mapapplication.MapFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map" >
+
+    </fragment>
+
 
 </navigation>
